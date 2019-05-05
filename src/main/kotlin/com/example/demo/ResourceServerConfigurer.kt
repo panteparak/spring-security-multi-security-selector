@@ -14,7 +14,7 @@ class ResourceServerConfigurer : ResourceServerConfigurerAdapter() {
         http.requestMatcher(object : AntPathRequestMatcherWrapper("/*"){
             override fun precondition(request: HttpServletRequest): Boolean {
                 val allow = request.getHeader("Authorization").startsWith("Bearer ")
-                println("Auth Bearer $allow")
+//                println("Auth Bearer $allow")
                 return allow
             }
         }).authorizeRequests().anyRequest().authenticated()

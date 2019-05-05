@@ -19,7 +19,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.requestMatcher(object : AntPathRequestMatcherWrapper("/**") {
             override fun precondition(request: HttpServletRequest): Boolean {
                 val allow = !request.getHeader("Authorization").startsWith("Bearer", true)
-                println("non auth bearer $allow")
+//                println("non auth bearer $allow")
                 return allow
             }
         }).authorizeRequests().anyRequest().authenticated()
